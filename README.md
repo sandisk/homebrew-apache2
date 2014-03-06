@@ -1,4 +1,4 @@
-## Homebrew Apache2
+## Homebrew Apache2 on Mac OS X (Mavericks)
 
 #### Super Simple Installation
 
