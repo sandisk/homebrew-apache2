@@ -53,5 +53,4 @@ class Apache24 < Formula
     </plist>
     EOS
   end
-
 end
