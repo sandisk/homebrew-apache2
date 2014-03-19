@@ -9,21 +9,26 @@
 
 #### Post Installation
 
-After installation is complete, Homebrew will ask you to create a symlink in `~/Library/LaunchAgents`. Please **ignore this**, because it does NOT work properly with Apache. Apache needs to be started first as root; so creating a new agent won't do anything for you.
+1. After installation is complete, Homebrew will ask you to create a symlink in `~/Library/LaunchAgents`. Please **ignore this**, because it does NOT work properly with Apache. Apache needs to be started first as root; so creating a new agent won't do anything for you. *Thus, instead of the suggested command given by the Homebrew install routine:* `ln -sfv /usr/local/opt/apache24/*.plist ~/Library/LaunchAgents`
 
-Thus, instead of `ln -sfv /usr/local/opt/apache24/*.plist ~/Library/LaunchAgents`
+ **... ^ please use the following command to get this part right:**
 
-**Please use the following command to get this part right...**
+  ```
+  sudo cp /usr/local/opt/apache24/*.plist /Library/LaunchDaemons
+  ```
 
-```
-sudo cp /usr/local/opt/apache24/*.plist /Library/LaunchDaemons
-```
+2. Mac OS X already comes with a default/built-in (i.e. older) copy of Apache. In order to prevent conflicts on port `80` we need to disable the built-in copy of Apache in favor of your new local Homebrew Apache installation.
 
-Now, start Apache for the first time without needing to reboot.
+ **Disable the default built-in copy of Apache that comes with OS X:**
+  ```
+  sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+  ```
 
-```
-sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.apache24.plist
-```
+3. **Now, start your local Homebrew Apache installation for the first time:**
+
+  ```
+  sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.apache24.plist
+  ```
 
 ## Adding PHP to Apache?
 
