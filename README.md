@@ -42,7 +42,7 @@ For further details regarding PHP, see: <https://github.com/josegonzalez/homebre
 
 ## Start/Stop/Restart Apache?
 
-Mac OS X comes with a built-in copy of Apache, so typing `sudo apachectl restart` from the command line is NOT going to restart our Homebrew installation of Apache, it will restart the default/built-in (i.e. older) copy of Apache that comes with OS X. **To avoid this problem,** the full path to your `apachectl`; i.e. `sudo /usr/local/sbin/apachectl restart`
+Mac OS X comes with a built-in copy of Apache, so typing `sudo apachectl restart` from the command line is NOT going to restart our Homebrew installation of Apache, it will restart the default/built-in (i.e. older) copy of Apache that comes with OS X. **To avoid this problem,** use the full path to your `apachectl`; i.e. `sudo /usr/local/sbin/apachectl restart`
 
 ## Adding MySQL for use with PHP?
 
