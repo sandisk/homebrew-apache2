@@ -42,26 +42,7 @@ For further details regarding PHP, see: <https://github.com/josegonzalez/homebre
 
 ## Start/Stop/Restart Apache?
 
-Mac OS X comes with a built-in copy of Apache, so typing `sudo apachectl start` from the command line is NOT going to startup our Homebrew installation of Apache, it will startup the default/built-in (i.e. older) copy of Apache that comes with OS X.
-
-##### There are two ways to avoid this problem.
-
-1. Use the full path to `apachectl`; e.g. `sudo /usr/local/sbin/apachectl start`
-2. Or, make life easier and modify your `$PATH` by adding the following lines to your `~/.profile`
-
-```
-# Give `/usr/local/sbin` a higher priority.
-if [ -d /usr/local/sbin ]; then
-    export PATH='/usr/local/sbin:'"$PATH";
-fi;
-
-# Give `/usr/local/bin` a higher priority.
-if [ -d /usr/local/bin ]; then
-    export PATH='/usr/local/bin:'"$PATH";
-fi;
-```
-
-Now you can simply type: `sudo apachectl start` or `sudo apachectl stop` or `sudo apachectl restart`
+Mac OS X comes with a built-in copy of Apache, so typing `sudo apachectl restart` from the command line is NOT going to restart our Homebrew installation of Apache, it will restart the default/built-in (i.e. older) copy of Apache that comes with OS X. **To avoid this problem,** the full path to your `apachectl`; i.e. `sudo /usr/local/sbin/apachectl restart`
 
 ## Adding MySQL for use with PHP?
 
@@ -73,7 +54,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 Then type the following command and choose `Y` (uppercase) for all questions.
 ```
-mysql_secure_installation
+/usr/local/bin/mysql_secure_installation
 ```
 
 ----
